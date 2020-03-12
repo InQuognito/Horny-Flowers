@@ -1,0 +1,43 @@
+  # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+    modLoader="javafml"
+    # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+    # Forge for 1.14.4 is version 28
+    loaderVersion="[28,)"
+    # A URL to refer people to when problems occur with this mod
+    issueTrackerURL="N/A"
+    # If the mods defined in this file should show as seperate resource packs
+    showAsResourcePack=false
+
+    [[mods]]
+      modId="hornyflowers"
+      version="1.0"
+      displayName="Horny Flowers"
+      updateJSONURL="minecraftforge.net/versions.json"
+      displayURL="minecraftforge.net"
+      logoFile="assets/examplemod/textures/logo.png"
+      credits="N/A"
+      authors="InQuognito, Ghast"
+      description='''
+      A Botania addon that adds a variety of new Horns and Drums into the game to make automation easier!
+      '''
+
+      [[dependencies.examplemod]]
+        modId="forge"
+        mandatory=true
+        versionRange="[28,)"
+        ordering="NONE"
+        side="BOTH"
+
+      [[dependencies.examplemod]]
+        modId="minecraft"
+        mandatory=true
+        versionRange="[1.14.4]"
+        ordering="NONE"
+        side="BOTH"
+	
+      [[dependencies.examplemod]]
+        modId="botania"
+        mandatory=true
+        versionRange="[r1.11-378,)"
+        ordering="NONE"
+        side="BOTH"
