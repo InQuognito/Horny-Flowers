@@ -89,23 +89,25 @@ public class GrainHorn extends Item {
 			if((crop.isMaxAge(state))) {
 				List<ItemStack> drops = Block.getDrops(world.getBlockState(currCoords), (ServerWorld) world, currCoords, null);
 				ItemStack seed = crop.getItem(world, currCoords, world.getBlockState(currCoords));
-				for(int it = 0; it < drops.size(); it++) {
+				//debug
+				/*for(int it = 0; it < drops.size(); it++) {
 					if(drops.get(it).getItem().getRegistryName().equals(seed.getItem().getRegistryName())) {
 						System.out.println(drops.get(it).getCount());
 						break;
 					}
-				}
+				}*/
 				for(int it = 0; it < drops.size(); it++) {
 					if(drops.get(it).getItem().getRegistryName().equals(seed.getItem().getRegistryName())) {
 						drops.get(it).setCount(drops.get(it).getCount() - 1);
 						it = drops.size();
 					}
 				}
-				for(int it = 0; it < drops.size(); it++) {
+				//debug
+				/*for(int it = 0; it < drops.size(); it++) {
 					if(drops.get(it).getItem().getRegistryName().equals(seed.getItem().getRegistryName())) {
 						System.out.println(drops.get(it).getCount());
 					}
-				}
+				}*/
 				
 				for(int it = 0; it < drops.size(); it++) {
 					Block.spawnAsEntity(world, currCoords, drops.get(it));
