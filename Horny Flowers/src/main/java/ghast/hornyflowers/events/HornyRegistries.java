@@ -1,4 +1,4 @@
-package events;
+package ghast.hornyflowers.events;
 
 import ghast.hornyflowers.HornyFlowers;
 import ghast.hornyflowers.items.GrainHorn;
@@ -26,7 +26,7 @@ public class HornyRegistries {
     @SubscribeEvent
     public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
     	GrainHorn horn = new GrainHorn(defaultProperties(1));
-    	event.getRegistry().register(setup(horn, "horn_grain"));
+    	event.getRegistry().register(setup(horn, "hornGrain"));
     }
     
     @SubscribeEvent
