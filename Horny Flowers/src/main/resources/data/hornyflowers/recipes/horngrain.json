@@ -1,1 +1,40 @@
-placeholder so I can upload
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "ecf",
+        "bab",
+        "fde"
+    ],
+    "key":
+    {
+        "a":
+        {
+            "item": "botania:horn_grass"
+        },
+        "b":
+        {
+            "item": "botania:pixie_dust"
+        },
+        "c":
+        {
+            "item": "botania:rune_earth"
+        },
+        "d":
+        {
+            "item": "botania:rune_spring"
+        },
+        "e":
+        {
+            "item": "botania:golden_seeds"
+        },
+        "f":
+        {
+            "item": "botania:vivid_seeds"
+        }
+    },
+    "result":
+    {
+        "item": "hornyflowers:horn_grain"
+    }
+}
