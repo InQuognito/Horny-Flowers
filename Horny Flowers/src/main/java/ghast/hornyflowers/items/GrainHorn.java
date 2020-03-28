@@ -9,6 +9,8 @@ import javax.annotation.Nonnull;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BushBlock;
+import net.minecraft.block.CropsBlock;
+import net.minecraft.block.IGrowable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -21,6 +23,8 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.IPlantable;
 import vazkii.botania.api.item.IHornHarvestable;
 import vazkii.botania.api.item.IHornHarvestable.EnumHornType;
 import vazkii.botania.common.item.ModItems;
@@ -68,7 +72,7 @@ public class GrainHorn extends Item {
 		for(BlockPos pos : BlockPos.getAllInBoxMutable(srcPos.add(-range, -rangeY, -range),
 				srcPos.add(range, rangeY, range))) {
 			Block block = world.getBlockState(pos).getBlock();
-			if(block instanceof BushBlock && !block.isIn(ModTags.Blocks.SPECIAL_FLOWERS)) {
+			if(block instanceof CropsBlock /*BushBlock*/ && !block.isIn(ModTags.Blocks.SPECIAL_FLOWERS)) {
 					coords.add(pos.toImmutable());
 			}
 		}
@@ -80,9 +84,32 @@ public class GrainHorn extends Item {
 			BlockPos currCoords = coords.get(i);
 			BlockState state = world.getBlockState(currCoords);
 			Block block = state.getBlock();
+			CropsBlock crop = (CropsBlock) block;
 			//((IHornHarvestable) block).harvestByHorn(world, currCoords, stack, EnumHornType.WILD);
-			if(!(world.getBlockState(currCoords) == block.getDefaultState())) {
-				Block.spawnDrops(world.getBlockState(currCoords), world, currCoords);
+			if((crop.isMaxAge(state))) {
+				List<ItemStack> drops = Block.getDrops(world.getBlockState(currCoords), (ServerWorld) world, currCoords, null);
+				ItemStack seed = crop.getItem(world, currCoords, world.getBlockState(currCoords));
+				for(int it = 0; it < drops.size(); it++) {
+					if(drops.get(it).getItem().getRegistryName().equals(seed.getItem().getRegistryName())) {
+						System.out.println(drops.get(it).getCount());
+						break;
+					}
+				}
+				for(int it = 0; it < drops.size(); it++) {
+					if(drops.get(it).getItem().getRegistryName().equals(seed.getItem().getRegistryName())) {
+						drops.get(it).setCount(drops.get(it).getCount() - 1);
+						it = drops.size();
+					}
+				}
+				for(int it = 0; it < drops.size(); it++) {
+					if(drops.get(it).getItem().getRegistryName().equals(seed.getItem().getRegistryName())) {
+						System.out.println(drops.get(it).getCount());
+					}
+				}
+				
+				for(int it = 0; it < drops.size(); it++) {
+					Block.spawnAsEntity(world, currCoords, drops.get(it));
+				}
 				world.setBlockState(currCoords, block.getDefaultState());
 			}
 		}
