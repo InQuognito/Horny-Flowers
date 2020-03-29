@@ -26,7 +26,7 @@ public class HornyRegistries {
     @SubscribeEvent
     public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
     	GrainHorn horn = new GrainHorn(defaultProperties(1));
-    	event.getRegistry().register(setup(horn, "hornGrain"));
+    	event.getRegistry().register(setup(horn, "horn_grain"));
     }
     
     @SubscribeEvent
