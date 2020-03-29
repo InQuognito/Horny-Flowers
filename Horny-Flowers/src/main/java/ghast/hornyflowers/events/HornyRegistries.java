@@ -2,6 +2,7 @@ package ghast.hornyflowers.events;
 
 import ghast.hornyflowers.HornyFlowers;
 import ghast.hornyflowers.items.GrainHorn;
+import ghast.hornyflowers.items.HornyItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.Properties;
@@ -11,11 +12,12 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import vazkii.botania.common.core.BotaniaCreativeTab;
 
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class HornyRegistries {
 	public static Properties defaultProperties(int stackSize) {
-		return new Properties().maxStackSize(stackSize).setNoRepair();
+		return new Properties().maxStackSize(stackSize).setNoRepair().group(HornyItemGroup.INSTANCE);
 	}
 	
     @SubscribeEvent
