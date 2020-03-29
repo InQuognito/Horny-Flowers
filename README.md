@@ -1,37 +1,7 @@
-## Welcome to GitHub Pages
+Horny Flowers is an addon for Botania that implements multiple conveinence options for players while staying true to Botania's core values. It currently adds the Horn of the Grain, a horn that when blown, breaks and replants all mature plants in the nearby area. 
 
-You can use the [editor on GitHub](https://github.com/InQuognito/Horny-Flowers/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+#Installation
+To install, download the [latest version of Forge] avaliable for the latest botania version, and then put this mod into your .minecraft/mods folder. Make sure to also install Botania!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/InQuognito/Horny-Flowers/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#Development
+To begin helping with development, simply clone this repository onto your computer and import the Horny-Flowers subdirectory of the project folder you cloned as a gradle project in Eclipse (Reccomended) or your IDE of choice (Not reccomended). 
